@@ -5,7 +5,11 @@ import PostItem from './PostItem';
 import PostForm from './PostForm';
 import { getPosts } from '../../actions/post';
 
-const Posts = ({ getPosts, post: { posts } }) => {
+const Posts = ({
+  getPosts,
+
+  post: { posts }
+}) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);

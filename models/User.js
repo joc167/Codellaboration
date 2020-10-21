@@ -20,7 +20,14 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  address: [
+    {
+      city: { String },
+      street: { String },
+      houseNumber: { String }
+    }
+  ]
 });
 
 module.exports = mongoose.model('user', UserSchema);

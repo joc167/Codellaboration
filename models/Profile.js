@@ -22,8 +22,20 @@ const ProfileSchema = new mongoose.Schema({
     type: [String],
     required: true
   },
+  frontframeworks: {
+    type: [String],
+    required: true
+  },
+  backframeworks: {
+    type: [String],
+    required: true
+  },
   bio: {
     type: String
+  },
+  hobbies: {
+    type: [String],
+    required: true
   },
   githubusername: {
     type: String
@@ -104,6 +116,14 @@ const ProfileSchema = new mongoose.Schema({
       type: String
     }
   },
+  // address: [
+  //   {
+  //     city: { String },
+  //     street: { String },
+  //     houseNumber: { String }
+  //   }
+  // ],
+
   date: {
     type: Date,
     default: Date.now

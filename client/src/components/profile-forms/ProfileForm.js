@@ -10,6 +10,8 @@ const initialState = {
   location: '',
   status: '',
   skills: '',
+  frontframeworks: '',
+  backframeworks: '',
   githubusername: '',
   bio: '',
   twitter: '',
@@ -51,6 +53,8 @@ const ProfileForm = ({
     location,
     status,
     skills,
+    frontframeworks,
+    backframeworks,
     githubusername,
     bio,
     twitter,
@@ -60,10 +64,10 @@ const ProfileForm = ({
     instagram
   } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData, history, profile ? true : false);
   };
@@ -138,6 +142,31 @@ const ProfileForm = ({
           />
           <small className="form-text">
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+          </small>
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="* Frontend Frameworks"
+            name="frontframeworks"
+            value={frontframeworks}
+            onChange={onChange}
+          />
+          <small className="form-text">
+            Please use comma separated values (eg. Angular,React,Vue.js)
+          </small>
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="* Backend Frameworks"
+            name="backframeworks"
+            value={backframeworks}
+            onChange={onChange}
+          />
+          <small className="form-text">
+            Please use comma separated values (eg. Django,Express.js, Ruby on
+            Rails)
           </small>
         </div>
         <div className="form-group">
@@ -248,7 +277,7 @@ ProfileForm.propTypes = {
   profile: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   profile: state.profile
 });
 
